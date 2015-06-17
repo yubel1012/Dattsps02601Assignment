@@ -1,0 +1,43 @@
+Public Class FrmLogin
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim Id As String
+        Dim Pw As String
+
+        Id = txttaikhoanlogin.Text
+        Pw = txtmatkhaulogin.Text
+
+        If Id = "dattsps02601" Then
+            If Pw = "horakhty12" Then
+                MessageBox.Show("Đăng Nhập Thành Công")
+                DangnhapID = Id
+                MatKhauPW = Pw
+                FrmMain.ShowDialog()
+            Else
+                MessageBox.Show("Sai Mật Khẩu")
+            End If
+        Else
+            MessageBox.Show("Sai Tên Đăng Nhập")
+        End If
+    End Sub
+
+    Private Sub txtDangNhap_KeyDown(sender As Object, e As KeyEventArgs) Handles txttaikhoanlogin.KeyDown
+        If e.KeyValue = Keys.Enter Then
+            txtmatkhaulogin.Focus()
+        End If
+    End Sub
+
+    Private Sub txtMatKhau_KeyDown(sender As Object, e As KeyEventArgs) Handles lblmatkhaulogin.KeyDown
+        If e.KeyValue = Keys.Enter Then
+            btnLogin_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub btnDangNhap_TabIndexChanged(sender As Object, e As EventArgs) Handles btnLogin.TabIndexChanged
+
+    End Sub
+
+
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
